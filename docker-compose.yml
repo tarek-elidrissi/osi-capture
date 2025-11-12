@@ -1,0 +1,10 @@
+services:
+  compiler:
+    build: .
+    container_name: osi-capture-compiler
+    volumes:
+      - .:/app:z
+    command: bash -c "
+      mkdir -p output && \
+      gcc osi-capture.c -o ./output/osi-capture
+      "  # && tail -f /dev/null
