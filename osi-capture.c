@@ -257,9 +257,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    printf("=== Packet Sniffer Started ===\n");
+    printf("=== OSI Capture Started ===\n");
     printf("Listening on interface: %s\n", iface);
-    printf("Press Ctrl+C to stop.\n");
 
     /*
      * Main capture loop:
@@ -269,7 +268,7 @@ int main(int argc, char *argv[]) {
     while (1) {
         int data_size = recvfrom(sockfd, buffer, sizeof(buffer), 0, NULL, NULL);
         if (data_size < 0) {
-            perror("recvfrom failed");
+            perror("Ethernet frame reading failed");
             break;
         }
 
